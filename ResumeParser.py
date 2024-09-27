@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 # Initialize Firebase Admin SDK
-cred = credentials.Certificate("/Users/hassanjafri/Documents/Resume parser/smarthire-99e8f-firebase-adminsdk-gi62l-55bbf10c12.json")
+cred = credentials.Certificate("smarthire-99e8f-firebase-adminsdk-gi62l-55bbf10c12.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
@@ -113,7 +113,7 @@ async def upload_resume(file: UploadFile = File(...), user_id: str = Form(...)):
     experience_level = extract_experience(doc)
 
     # Load skills keywords from CSV
-    skills_keywords = load_keywords("/Users/hassanjafri/Documents/Resume parser/newSkills.csv")  # Adjust the file path
+    skills_keywords = load_keywords("newSkills.csv")  # Adjust the file path
     skills = extract_skills(doc, skills_keywords)
 
     # Prepare resume data
